@@ -1,0 +1,35 @@
+:imagesdir: docs/images
+
+= Cook
+
+*Cook* is an example application demonstrating the use of Config Server for Pivotal Cloud Foundry. (For information on the Config Server product, please http://docs.pivotal.io/spring-cloud-services/config-server/[see the documentation].)
+
+== Building and Deploying
+
+. If using Maven, run:
++
+....
+$ mvn package
+....
++
+If using Gradle, run `./gradlew build` (OS X, Linux) or `gradlew.bat build` (Windows).
++
+....
+$ ./gradlew build
+....
+
+. Run the deployment script (link:scripts/deploy.sh[`scripts/deploy.sh`] on Linux or OS X, link:scripts/deploy.bat[`scripts/deploy.bat`] on Windows), giving it the path to the application archive. (This will be something like `target/cook-0.0.1-SNAPSHOT.jar` if you used Maven or `build/libs/cook-0.0.1-SNAPSHOT.jar` if you used Gradle.)
++
+....
+$ ./scripts/deploy.sh target/cook-0.0.1-SNAPSHOT.jar
+....
++
+. The script will create a Config Server instance and then wait for you to configure it; when prompted, visit Apps Manager to configure the instance. Give it the repository URI https://github.com/spring-cloud-samples/cook-config[`https://github.com/spring-cloud-samples/cook-config`].
++
+image::manage-config-server.png[link:docs/images/manage-config-server.png]
+
+. Save your settings and let the script continue. It will push the application and bind the Config Server instance.
+
+. Visit `[ROUTE]/restaurant`, where `[ROUTE]` is the route bound to the application. The &#8220;special&#8221; of the day will be taken from the configuration repository and the value of `cook.special`.
++
+image::special-of-the-day.png[link:docs/images/special-of-the-day.png]
