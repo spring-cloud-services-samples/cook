@@ -1,0 +1,8 @@
+---
+instances: 1
+memory: 512M
+applications:
+  - name: cook
+    host: cookie
+    services:
+      - config-server
