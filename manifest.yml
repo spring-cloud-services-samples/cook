@@ -6,3 +6,5 @@ applications:
     host: cookie
     services:
       - config-server
+    env:
+      SPRING_PROFILES_ACTIVE: production
