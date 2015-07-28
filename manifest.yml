@@ -4,6 +4,7 @@ memory: 512M
 applications:
   - name: cook
     host: cookie
+    path: build/libs/cook-0.0.1-SNAPSHOT.jar
     services:
       - config-server
     env:
