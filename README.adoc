@@ -30,6 +30,21 @@ image::manage-config-server.png[link:docs/images/manage-config-server.png]
 
 . Save your settings and let the script continue. It will push the application and bind the Config Server instance.
 
+. When the script has finished, set the `CF_TARGET` environment variable to the API endpoint of your Elastic Runtime instance (as in `api.example.com`), then run `cf restage cook` to restage the application so that that change will take effect.
++
+....
+$ cf set-env cook CF_TARGET black.wise.com
+Setting env variable 'CF_TARGET' to 'black.wise.com' for app cook in org myorg / space outer as user...
+OK
+TIP: Use 'cf restage' to ensure your env variable changes take effect
+$ cf restage cook
+....
+
+[IMPORTANT]
+====
+By default, the Config Server client dependency will cause all application endpoints to be secured by HTTP Basic authentication. You may want to http://scs-docs.black.springapps.io/spring-cloud-services/config-server/writing-a-spring-client.html#disable-http-basic-auth[disable this].
+====
+
 . Visit `[ROUTE]/restaurant`, where `[ROUTE]` is the route bound to the application. The &#8220;special&#8221; of the day will be taken from the configuration repository and the value of `cook.special`.
 +
 image::special-of-the-day.png[link:docs/images/special-of-the-day.png]
