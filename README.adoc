@@ -33,7 +33,7 @@ image::manage-config-server.png[link:docs/images/manage-config-server.png]
 . When the script has finished, set the `CF_TARGET` environment variable to the API endpoint of your Elastic Runtime instance (as in `api.example.com`), then run `cf restage cook` to restage the application so that that change will take effect.
 +
 ....
-$ cf set-env cook CF_TARGET https://api.wise.com
+$ cf set-env cook CF_TARGET api.wise.com
 Setting env variable 'CF_TARGET' to 'api.wise.com' for app cook in org myorg / space outer as user...
 OK
 TIP: Use 'cf restage' to ensure your env variable changes take effect
