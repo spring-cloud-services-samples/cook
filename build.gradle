@@ -19,7 +19,7 @@ jar {
 
 dependencyManagement {
     imports {
-        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-starter-parent:1.0.0.M1"
+        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-starter-parent:1.0.0.RC1"
     }
 }
 
@@ -42,7 +42,6 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE")
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("io.pivotal.spring.cloud:cloudfoundry-certificate-truster:1.0.0.BUILD-SNAPSHOT")
     compile("org.springframework.boot:spring-boot-starter-test")
     compile("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client")
 }
