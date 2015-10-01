@@ -1,6 +1,6 @@
 :imagesdir: docs/images
 
-= Cook
+= Config Server sample
 
 *Cook* is an example application demonstrating the use of Config Server for Pivotal Cloud Foundry. (For information on the Config Server product, please http://docs.pivotal.io/spring-cloud-services/config-server/[see the documentation].)
 
