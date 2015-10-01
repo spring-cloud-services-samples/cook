@@ -40,7 +40,7 @@ TIP: Use 'cf restage' to ensure your env variable changes take effect
 $ cf restage cook
 ....
 +
-[IMPORTANT]
+[NOTE]
 ====
 By default, the Config Server client dependency will cause all application endpoints to be secured by HTTP Basic authentication. For more information or if you wish to disable this, http://scs-docs.black.springapps.io/spring-cloud-services/config-server/writing-a-spring-client.html#disable-http-basic-auth[see the documentation]. (HTTP Basic authentication is disabled in this sample application.)
 ====
