@@ -4,7 +4,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE")
-        classpath("io.spring.gradle:dependency-management-plugin:0.5.1.RELEASE")
+        classpath("io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE")
     }
 }
 
@@ -19,7 +19,7 @@ jar {
 
 dependencyManagement {
     imports {
-        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-starter-parent:1.0.0.M1"
+        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-starter-parent:1.0.0.RELEASE"
     }
 }
 
@@ -27,10 +27,6 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-    mavenCentral()
-    maven {
-        url "https://repo.spring.io/libs-snapshot"
-    }
     maven {
         url "https://repo.spring.io/plugins-release"
     }
@@ -42,7 +38,6 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE")
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("io.pivotal.spring.cloud:cloudfoundry-certificate-truster:1.0.0.BUILD-SNAPSHOT")
     compile("org.springframework.boot:spring-boot-starter-test")
     compile("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client")
 }

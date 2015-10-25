@@ -1,6 +1,6 @@
 :imagesdir: docs/images
 
-= Cook
+= Config Server sample
 
 *Cook* is an example application demonstrating the use of Config Server for Pivotal Cloud Foundry. (For information on the Config Server product, please http://docs.pivotal.io/spring-cloud-services/config-server/[see the documentation].)
 
@@ -29,6 +29,23 @@ $ ./scripts/deploy.sh target/cook-0.0.1-SNAPSHOT.jar
 image::manage-config-server.png[link:docs/images/manage-config-server.png]
 
 . Save your settings and let the script continue. It will push the application and bind the Config Server instance.
+
+. When the script has finished, set the `CF_TARGET` environment variable to the API endpoint of your Elastic Runtime instance (as in `https://api.example.com`), then run `cf restage cook` to restage the application so that that change will take effect.
++
+....
+$ cf set-env cook CF_TARGET https://api.wise.com
+Setting env variable 'CF_TARGET' to 'https://api.wise.com' for app cook in org myorg / space outer as user...
+OK
+TIP: Use 'cf restage' to ensure your env variable changes take effect
+$ cf restage cook
+....
++
+[NOTE]
+====
+By default, the Config Server client dependency will cause all application endpoints to be secured by HTTP Basic authentication. For more information or if you wish to disable this, http://scs-docs.black.springapps.io/spring-cloud-services/config-server/writing-a-spring-client.html#disable-http-basic-auth[see the documentation]. (HTTP Basic authentication is disabled in this sample application.)
+====
+
+== Trying It Out
 
 . Visit `[ROUTE]/restaurant`, where `[ROUTE]` is the route bound to the application. The &#8220;special&#8221; of the day will be taken from the configuration repository and the value of `cook.special`.
 +
