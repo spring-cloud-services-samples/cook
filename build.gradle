@@ -19,7 +19,7 @@ jar {
 
 dependencyManagement {
     imports {
-        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-starter-parent:1.0.0.RC3"
+        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-starter-parent:1.0.0.RELEASE"
     }
 }
 
@@ -31,7 +31,7 @@ repositories {
         url "https://repo.spring.io/plugins-release"
     }
     maven {
-        url "https://repo.spring.io/libs-milestone/"
+        url "https://repo.spring.io/libs-release"
     }
 }
 
