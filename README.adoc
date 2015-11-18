@@ -30,7 +30,7 @@ image::manage-config-server.png[link:docs/images/manage-config-server.png]
 
 . Save your settings and let the script continue. It will push the application and bind the Config Server instance.
 
-. When the script has finished, set the `CF_TARGET` environment variable to the API endpoint of your Elastic Runtime instance (as in `https://api.example.com`), then run `cf restage cook` to restage the application so that that change will take effect. Setting `CF_TARGET` causes Spring Cloud Services to add the the SSL certificate at the specfied API endpoint to the JVM's trust store so that the client application can talk to the config server even if the Elastic Runtime is using a Self-Signed SSL certificate. 
+. When the script has finished, set the `CF_TARGET` environment variable to the API endpoint of your Elastic Runtime instance (as in `https://api.example.com`), then run `cf restage cook` to restage the application so that that change will take effect. Setting `CF_TARGET` causes Spring Cloud Services to add the the SSL certificate at the specfied API endpoint to the JVM's truststore, so that the client application can talk to a Config Server service instance even if your Elastic Runtime instance is using a self-signed SSL certificate (see the http://docs.pivotal.io/spring-cloud-services/config-server/writing-a-spring-client.html#self-signed-ssl-certificate[Config Server documentation]).
 +
 ....
 $ cf set-env cook CF_TARGET https://api.wise.com
