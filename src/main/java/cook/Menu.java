@@ -11,8 +11,15 @@ public class Menu {
   @Value("${cook.special}")
   String special;
 
+  @Value("${secretMenu}")
+  String secretMenu;
+
   public String getSpecial() {
     return special;
+  }
+
+  public String getSecretMenu() {
+    return secretMenu;
   }
 
 }
