@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: cook
+
+encrypt:
+  keyStore:
+    location: classpath:/server.jks
+    password: letmein
+    alias: mytestkey
+    secret: changeme

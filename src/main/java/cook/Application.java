@@ -18,6 +18,11 @@ public class Application {
       return String.format("Today's special is: %s", menu.getSpecial());
     }
 
+    @RequestMapping("/restaurant/secret-menu")
+    public String secretMenu() {
+      return menu.getSecretMenu();
+    }
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
