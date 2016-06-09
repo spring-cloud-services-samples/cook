@@ -30,9 +30,6 @@ repositories {
     maven {
         url "https://repo.spring.io/plugins-release"
     }
-    maven {
-        url "https://repo.spring.io/libs-release"
-    }
 }
 
 dependencies {

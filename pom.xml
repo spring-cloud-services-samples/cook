@@ -71,11 +71,4 @@
     </plugins>
   </build>
 
-  <repositories>
-    <repository>
-      <id>spring-release</id>
-      <url>https://repo.spring.io/libs-release</url>
-    </repository>
-  </repositories>
-
 </project>
