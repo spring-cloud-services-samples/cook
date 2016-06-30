@@ -1,6 +1,6 @@
 ---
 instances: 1
-memory: 512M
+memory: 1G
 applications:
   - name: cook
     host: cookie
