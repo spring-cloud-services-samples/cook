@@ -1,6 +1,8 @@
+# code_snippet springApplicationName start yaml
 spring:
   application:
     name: cook
+# code_snippet springApplicationName end
 
 secretMenu: Animal Crackers
 
