@@ -1,4 +1,4 @@
-# code_snippet springApplicationName start yaml
+# code_snippet springApplicationName start yml
 spring:
   application:
     name: cook
