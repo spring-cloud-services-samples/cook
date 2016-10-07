@@ -30,14 +30,14 @@
         <dependency>
             <groupId>io.pivotal.spring.cloud</groupId>
             <artifactId>spring-cloud-services-dependencies</artifactId>
-            <version>1.1.2.RELEASE</version>
+            <version>1.2.0.RELEASE</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-dependencies</artifactId>
-            <version>Brixton.SR1</version>
+            <version>Brixton.SR6</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
