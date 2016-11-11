@@ -39,10 +39,11 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework.security:spring-security-rsa")
-    compile("org.springframework.cloud:spring-cloud-context:1.1.5.RELEASE")
     compile("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client")
 }
 
 task wrapper(type: Wrapper) {
     gradleVersion = "2.10"
 }
+
+test.enabled = false
