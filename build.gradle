@@ -35,7 +35,7 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:1.4.1.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web:1.4.2.RELEASE")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework.security:spring-security-rsa")
