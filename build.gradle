@@ -3,13 +3,13 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE")
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.2.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
     }
 }
 
 apply plugin: "java"
-apply plugin: "spring-boot"
+apply plugin: "org.springframework.boot"
 apply plugin: "io.spring.dependency-management"
 
 jar {
@@ -19,9 +19,9 @@ jar {
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:1.4.2.RELEASE"
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Camden.SR4"
-        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:1.4.1.RELEASE"
+        mavenBom "org.springframework.boot:spring-boot-dependencies:1.5.2.RELEASE"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.RELEASE"
+        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:1.5.0.RELEASE"
     }
 }
 
@@ -35,7 +35,7 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:1.4.2.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework.security:spring-security-rsa")
