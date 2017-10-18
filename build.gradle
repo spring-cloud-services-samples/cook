@@ -4,7 +4,7 @@ buildscript {
     }
     dependencies {
         classpath("io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE")
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.8.RELEASE")
     }
 }
 
@@ -19,9 +19,9 @@ jar {
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:1.4.2.RELEASE"
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Camden.SR4"
-        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:1.4.1.RELEASE"
+        mavenBom "org.springframework.boot:spring-boot-dependencies:1.5.8.RELEASE"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Dalston.SR4"
+        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:1.6.0.BUILD-SNAPSHOT"
     }
 }
 
@@ -31,11 +31,12 @@ targetCompatibility = 1.8
 repositories {
     maven {
         url "https://repo.spring.io/plugins-release"
+        url "https://repo.spring.io/libs-snapshot"
     }
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:1.4.2.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.8.RELEASE")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework.security:spring-security-rsa")
