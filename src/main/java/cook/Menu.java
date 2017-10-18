@@ -15,14 +15,24 @@
  */
  package cook;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
+import io.pivotal.spring.cloud.service.config.PlainTextConfigClient;
 
 // code_snippet cookSpecialOne start java
 @RefreshScope
 @Component
 public class Menu {
+
+  @Autowired
+  private PlainTextConfigClient plainTextConfigClient;
 
   @Value("${cook.special}")
   String special;
@@ -39,6 +49,18 @@ public class Menu {
 
   public String getSecretMenu() {
     return secretMenu;
+  }
+
+  public String getPlainRecipeText() {
+    Resource recipe = plainTextConfigClient.getConfigFile("cook-plain.txt");
+
+    try (BufferedReader buffer = new BufferedReader(
+			new InputStreamReader(recipe.getInputStream()))) {
+ 			return buffer.lines().collect(Collectors.joining("\n"));
+ 		}
+		catch (IOException e) {
+			throw new RuntimeException(e);
+		}
   }
 
 }

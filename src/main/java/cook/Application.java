@@ -18,11 +18,13 @@
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
+@EnableOAuth2Client
 public class Application {
 
     @Autowired
@@ -30,7 +32,7 @@ public class Application {
 
     @RequestMapping("/restaurant")
     public String restaurant() {
-      return String.format("Today's special is: %s", menu.getSpecial());
+      return String.format("Today's special is: %s<br/>And recipe is: %s", menu.getSpecial(), menu.getPlainRecipeText());
     }
 
     @RequestMapping("/restaurant/secret-menu")
