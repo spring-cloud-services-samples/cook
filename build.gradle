@@ -47,3 +47,6 @@ task wrapper(type: Wrapper) {
 }
 
 test.enabled = false
+task wrapper(type: Wrapper) {
+	gradleVersion = "4.6"
+}
