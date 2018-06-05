@@ -1,49 +1,43 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE")
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
-    }
+plugins {
+	id "org.springframework.boot" version "2.0.2.RELEASE"
 }
+
+version = "0.0.1-SNAPSHOT"
 
 apply plugin: "java"
-apply plugin: "spring-boot"
+apply plugin: "eclipse"
+apply plugin: "idea"
 apply plugin: "io.spring.dependency-management"
-
-jar {
-    baseName = "cook"
-    version = "0.0.1-SNAPSHOT"
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.boot:spring-boot-dependencies:1.4.2.RELEASE"
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:Camden.SR4"
-        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:1.4.1.RELEASE"
-    }
-}
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-repositories {
-    maven {
-        url "https://repo.spring.io/plugins-release"
-    }
+jar {
+	baseName = "cook"
+}
+
+dependencyManagement {
+	imports {
+		mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.BUILD-SNAPSHOT"
+		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:2.0.0.BUILD-SNAPSHOT"
+	}
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:1.4.2.RELEASE")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("org.springframework.boot:spring-boot-starter-test")
-    compile("org.springframework.security:spring-security-rsa")
-    compile("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client")
+	compile("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client")
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	compile("org.springframework.boot:spring-boot-starter-security")
+	compile("org.springframework.security:spring-security-rsa")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+	testCompile("org.mockito:mockito-core")
+	testCompile("org.assertj:assertj-core")
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = "2.10"
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/libs-snapshot" }
 }
 
 test.enabled = false

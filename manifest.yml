@@ -7,4 +7,4 @@ applications:
     services:
       - cook-config-server
     env:
-      SPRING_PROFILES_ACTIVE: dev
+      SPRING_PROFILES_ACTIVE: development

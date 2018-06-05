@@ -1,11 +1,9 @@
 ---
 spring:
-  profiles: dev
-
-security:
-  basic:
-    enabled: false
+  profiles: development
 
 management:
-  security:
-    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'
