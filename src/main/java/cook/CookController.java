@@ -13,33 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- package cook;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+package cook;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@SpringBootApplication
-public class Application {
+public class CookController {
 
-    @Autowired
-    private Menu menu;
+	private final Menu menu;
 
-    @RequestMapping("/restaurant")
-    public String restaurant() {
-      return String.format("Today's special is: %s", menu.getSpecial());
-    }
+	public CookController(Menu menu) {
+		this.menu = menu;
+	}
 
-    @RequestMapping("/restaurant/secret-menu")
-    public String secretMenu() {
-      return menu.getSecretMenu();
-    }
+	@RequestMapping("/restaurant")
+	public String restaurant() {
+		return String.format("Today's special is: %s", menu.getSpecial());
+	}
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
+	@RequestMapping("/restaurant/secret-menu")
+	public String secretMenu() {
+		return menu.getSecretMenu();
+	}
 
 }

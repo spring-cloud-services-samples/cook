@@ -13,32 +13,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- package cook;
+
+package cook;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
-// code_snippet cookSpecialOne start java
 @RefreshScope
 @Component
 public class Menu {
 
-  @Value("${cook.special}")
-  String special;
-// code_snippet cookSpecialOne end
+	@Value("${cook.special:fish}")
+	String special;
 
-  @Value("${secretMenu}")
-  String secretMenu;
+	@Value("${secretMenu:vegetables}")
+	String secretMenu;
 
-// code_snippet cookSpecialTwo start java
-  public String getSpecial() {
-    return special;
-  }
-// code_snippet cookSpecialTwo end
+	public String getSpecial() {
+		return special;
+	}
 
-  public String getSecretMenu() {
-    return secretMenu;
-  }
+	public String getSecretMenu() {
+		return secretMenu;
+	}
 
 }

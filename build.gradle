@@ -40,7 +40,6 @@ repositories {
 	maven { url "https://repo.spring.io/libs-snapshot" }
 }
 
-test.enabled = false
 task wrapper(type: Wrapper) {
 	gradleVersion = "4.6"
 }
