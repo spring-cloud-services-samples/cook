@@ -5,6 +5,6 @@ applications:
   - name: cook
     host: cookie
     services:
-      - config-server
+      - cook-config-server
     env:
       SPRING_PROFILES_ACTIVE: dev
