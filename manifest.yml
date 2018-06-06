@@ -1,9 +1,9 @@
 ---
-instances: 1
-memory: 1G
 applications:
   - name: cook
     host: cookie
+    instances: 1
+    memory: 1G
     services:
       - cook-config-server
     env:
