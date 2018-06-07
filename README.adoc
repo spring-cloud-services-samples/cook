@@ -1,5 +1,7 @@
 :imagesdir: docs/images
 
+image:https://circleci.com/gh/spring-cloud-services-samples/cook.svg?style=svg["CircleCI", link="https://circleci.com/gh/spring-cloud-services-samples/cook"]
+
 = Config Server sample
 
 *Cook* is an example application demonstrating the use of Config Server for Pivotal Cloud Foundry. (For information on the Config Server product, please http://docs.pivotal.io/spring-cloud-services/config-server/[see the documentation].)
