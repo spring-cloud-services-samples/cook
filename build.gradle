@@ -1,5 +1,5 @@
 plugins {
-	id "org.springframework.boot" version "2.0.2.RELEASE"
+	id "org.springframework.boot" version "2.0.3.RELEASE"
 }
 
 version = "0.0.1-SNAPSHOT"
@@ -19,7 +19,7 @@ jar {
 dependencyManagement {
 	imports {
 		mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.RC2"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.RELEASE"
 		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:2.0.0.RC2"
 	}
 }
