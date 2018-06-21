@@ -16,6 +16,14 @@
 
 package cook;
 
+import java.io.IOException;
+import java.io.InputStream;
+
+import java.nio.charset.Charset;
+
+import io.pivotal.spring.cloud.service.config.PlainTextConfigClient;
+
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +31,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class CookController {
 
 	private final Menu menu;
+
+	private PlainTextConfigClient configClient;
 
 	public CookController(Menu menu) {
 		this.menu = menu;
@@ -36,6 +46,12 @@ public class CookController {
 	@RequestMapping("/restaurant/secret-menu")
 	public String secretMenu() {
 		return menu.getSecretMenu();
+	}
+
+	@RequestMapping("/restaurant/dessert-menu")
+	String dessertMenu() throws IOException {
+		InputStream input = configClient.getConfigFile("cloud", "master", "dessert.json").getInputStream();
+		return StreamUtils.copyToString(input, Charset.defaultCharset());
 	}
 
 }
