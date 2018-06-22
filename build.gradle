@@ -20,7 +20,7 @@ dependencyManagement {
 	imports {
 		mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.RELEASE"
-		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:2.0.0.RC2"
+		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:2.0.0.RC3"
 	}
 }
 

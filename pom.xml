@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-		<spring-cloud-services.version>2.0.0.RC2</spring-cloud-services.version>
+		<spring-cloud-services.version>2.0.0.RC3</spring-cloud-services.version>
 	</properties>
 
 	<dependencyManagement>
