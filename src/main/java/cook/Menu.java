@@ -24,11 +24,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class Menu {
 
-	@Value("${cook.special:none}")
-	String special;
+	private String special;
 
-	@Value("${secretMenu:none}")
-	String secretMenu;
+	private String secretMenu;
+
+	public Menu(@Value("${cook.special:none}") String special, @Value("${secretMenu:none}") String secretMenu) {
+		this.special = special;
+		this.secretMenu = secretMenu;
+	}
 
 	public String getSpecial() {
 		return special;

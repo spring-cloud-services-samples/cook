@@ -20,7 +20,7 @@ dependencyManagement {
 	imports {
 		mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.RELEASE"
-		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:2.0.0.RC3"
+		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:2.0.0.BUILD-SNAPSHOT"
 	}
 }
 
@@ -29,15 +29,16 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
 	compile("org.springframework.boot:spring-boot-starter-actuator")
 	compile("org.springframework.boot:spring-boot-starter-security")
+	compile("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure")
 	compile("org.springframework.security:spring-security-rsa")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
-	testCompile("org.mockito:mockito-core")
-	testCompile("org.assertj:assertj-core")
 }
 
 repositories {
 	mavenCentral()
+	maven { url "https://repo.spring.io/release" }
 	maven { url "https://repo.spring.io/milestone" }
+	maven { url "https://repo.spring.io/snapshot" }
 }
 
 task wrapper(type: Wrapper) {

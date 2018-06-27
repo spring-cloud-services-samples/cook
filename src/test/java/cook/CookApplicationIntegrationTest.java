@@ -17,27 +17,18 @@
 package cook;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-public class MenuTest {
-
-	@Test
-	public void emptyMenu() {
-		Menu menu = new Menu(null, null);
-		assertThat(menu.getSpecial()).isNullOrEmpty();
-		assertThat(menu.getSecretMenu()).isNullOrEmpty();
-	}
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class CookApplicationIntegrationTest {
 
 	@Test
-	public void menu() {
-		Menu menu = new Menu("Tofu Noodles", "Tofu BBQ");
-		assertThat(menu.getSpecial())
-				.isNotEmpty()
-				.isEqualTo("Tofu Noodles");
-		assertThat(menu.getSecretMenu())
-				.isNotEmpty()
-				.isEqualTo("Tofu BBQ");
+	public void contextLoads() {
+		// hurray
 	}
 
 }
