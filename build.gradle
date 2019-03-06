@@ -1,5 +1,5 @@
 plugins {
-	id "org.springframework.boot" version "2.0.3.RELEASE"
+	id "org.springframework.boot" version "2.1.1.RELEASE"
 }
 
 version = "0.0.1-SNAPSHOT"
@@ -19,8 +19,8 @@ jar {
 dependencyManagement {
 	imports {
 		mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Finchley.RELEASE"
-		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:2.0.1.RELEASE"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Greenwich.RELEASE"
+		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:2.1.1.RELEASE"
 	}
 }
 
@@ -39,8 +39,4 @@ repositories {
 	maven { url "https://repo.spring.io/release" }
 	maven { url "https://repo.spring.io/milestone" }
 	maven { url "https://repo.spring.io/snapshot" }
-}
-
-task wrapper(type: Wrapper) {
-	gradleVersion = "4.6"
 }
