@@ -2,7 +2,7 @@
 
 = Config Server sample
 
-*Cook* is an example application demonstrating the use of Config Server for Pivotal Cloud Foundry. (For information on the Config Server product, please http://docs.pivotal.io/spring-cloud-services/config-server/[see the documentation].)
+*Cook* is an example application demonstrating the use of Config Server for Pivotal Cloud Foundry. (For information on the Config Server product, please https://docs.pivotal.io/spring-cloud-services/config-server/[see the documentation].)
 
 == Building and Deploying
 
@@ -30,7 +30,7 @@ image::manage-config-server.png[link:docs/images/manage-config-server.png]
 
 . Save your settings and let the script continue. It will push the application and bind the Config Server instance.
 
-. When the script has finished, set the `CF_TARGET` environment variable to the API endpoint of your Elastic Runtime instance (as in `https://api.example.com`), then run `cf restage cook` to restage the application so that that change will take effect. Setting `CF_TARGET` causes Spring Cloud Services to add the the SSL certificate at the specfied API endpoint to the JVM's truststore, so that the client application can talk to a Config Server service instance even if your Elastic Runtime instance is using a self-signed SSL certificate (see the http://docs.pivotal.io/spring-cloud-services/config-server/writing-a-spring-client.html#self-signed-ssl-certificate[Config Server documentation]).
+. When the script has finished, set the `CF_TARGET` environment variable to the API endpoint of your Elastic Runtime instance (as in `https://api.example.com`), then run `cf restage cook` to restage the application so that that change will take effect. Setting `CF_TARGET` causes Spring Cloud Services to add the the SSL certificate at the specfied API endpoint to the JVM's truststore, so that the client application can talk to a Config Server service instance even if your Elastic Runtime instance is using a self-signed SSL certificate (see the https://docs.pivotal.io/spring-cloud-services/config-server/writing-a-spring-client.html#self-signed-ssl-certificate[Config Server documentation]).
 +
 ....
 $ cf set-env cook CF_TARGET https://api.wise.com
@@ -42,7 +42,7 @@ $ cf restage cook
 +
 [NOTE]
 ====
-By default, the Config Server client dependency will cause all application endpoints to be secured by HTTP Basic authentication. For more information or if you wish to disable this, http://scs-docs.black.springapps.io/spring-cloud-services/config-server/writing-a-spring-client.html#disable-http-basic-auth[see the documentation]. (HTTP Basic authentication is disabled in this sample application.)
+By default, the Config Server client dependency will cause all application endpoints to be secured by HTTP Basic authentication. For more information or if you wish to disable this, https://scs-docs.black.springapps.io/spring-cloud-services/config-server/writing-a-spring-client.html#disable-http-basic-auth[see the documentation]. (HTTP Basic authentication is disabled in this sample application.)
 ====
 
 == Trying It Out
