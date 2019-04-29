@@ -5,7 +5,7 @@ then
   exit 1
 fi
 
-if [ ! -z "`cf m | grep "p.config-server"`" ]; then
+if [ ! -z "`cf m | grep "p\.config-server"`" ]; then
   export service_name="p.config-server"
 elif [ ! -z "`cf m | grep "p-config-server"`" ]; then
   export service_name="p-config-server"
