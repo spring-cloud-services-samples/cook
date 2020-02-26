@@ -1,5 +1,5 @@
 plugins {
-	id "org.springframework.boot" version "2.1.10.RELEASE"
+	id "org.springframework.boot" version "2.2.4.RELEASE"
 }
 
 version = "0.0.1-SNAPSHOT"
@@ -19,8 +19,8 @@ jar {
 dependencyManagement {
 	imports {
 		mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Greenwich.SR4"
-		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:3.0.1.RELEASE"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:Hoxton.RELEASE"
+		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:2.2.1.RELEASE"
 	}
 }
 
@@ -32,6 +32,7 @@ dependencies {
 	compile("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure")
 	compile("org.springframework.security:spring-security-rsa")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
+	testCompile("org.springframework.security:spring-security-test")
 }
 
 repositories {
