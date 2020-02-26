@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 
-import io.pivotal.spring.cloud.config.client.PlainTextConfigClient;
+import io.pivotal.spring.cloud.service.config.PlainTextConfigClient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

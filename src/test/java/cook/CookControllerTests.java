@@ -25,6 +25,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.security.test.context.support.WithMockUser;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -32,7 +33,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(controllers = CookController.class, secure = false)
+@WebMvcTest(controllers = CookController.class)
 public class CookControllerTests {
 
 	@Autowired
@@ -48,6 +49,7 @@ public class CookControllerTests {
 	public void contextLoads() {
 	}
 
+  @WithMockUser(value = "Cookie")
 	@Test
 	public void restaurant() throws Exception {
 		given(this.menu.getSpecial())
@@ -58,6 +60,7 @@ public class CookControllerTests {
 				.andExpect(content().string("Today's special is: Tuna Melt"));
 	}
 
+  @WithMockUser(value = "Cookie")
 	@Test
 	public void secretMenu() throws Exception {
 		given(this.menu.getSecretMenu())
@@ -68,6 +71,7 @@ public class CookControllerTests {
 				.andExpect(content().string("Fish"));
 	}
 
+  @WithMockUser(value = "Cookie")
 	@Test
 	public void dessertMenu() throws Exception {
 		given(this.dessertMenu.fetchMenu())

@@ -19,7 +19,7 @@ package cook;
 import java.io.ByteArrayInputStream;
 import java.nio.charset.Charset;
 
-import io.pivotal.spring.cloud.config.client.PlainTextConfigClient;
+import io.pivotal.spring.cloud.service.config.PlainTextConfigClient;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
