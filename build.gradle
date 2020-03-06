@@ -1,7 +1,12 @@
 buildscript {
-    ext {
-        springCloudVersion = "Hoxton.RELEASE"
-        scsStartersVersion = "2.2.1.RELEASE"
+  ext {
+    if (project.hasProperty("springCloudOverrideVersion")) {
+      springCloudVersion = project.getProperties().get("springCloudOverrideVersion")
+    }
+    else {
+      springCloudVersion = "Hoxton.RELEASE"
+    }
+      scsStartersVersion = "2.2.1.RELEASE"
     }
 }
 
