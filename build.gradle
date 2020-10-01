@@ -25,7 +25,10 @@ dependencyManagement {
 }
 
 dependencies {
-	compile("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client")
+	compile("io.pivotal.cfenv:java-cfenv-jdbc:2.1.1.RELEASE")
+	compile("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client") {
+		exclude group: 'io.pivotal.cfenv', module: 'java-cfenv-boot-pivotal-scs'
+	}
 	compile("org.springframework.boot:spring-boot-starter-web")
 	compile("org.springframework.boot:spring-boot-starter-actuator")
 	compile("org.springframework.boot:spring-boot-starter-security")

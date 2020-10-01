@@ -1,6 +1,14 @@
 spring:
   application:
     name: cook
+  cloud:
+    config:
+      uri: #{ T(io.pivotal.cfenv.core.CfEnvSingleton).getCfEnvInstance().findCredentialsByTag('configuration').get('uri') }
+      client:
+        oauth2:
+          clientId: #{ T(io.pivotal.cfenv.core.CfEnvSingleton).getCfEnvInstance().findCredentialsByTag('configuration').get('client_id') }
+          clientSecret: #{ T(io.pivotal.cfenv.core.CfEnvSingleton).getCfEnvInstance().findCredentialsByTag('configuration').get('client_secret') }
+          accessTokenUri: #{ T(io.pivotal.cfenv.core.CfEnvSingleton).getCfEnvInstance().findCredentialsByTag('configuration').get('access_token_uri') }
 
 encrypt:
   keyStore:

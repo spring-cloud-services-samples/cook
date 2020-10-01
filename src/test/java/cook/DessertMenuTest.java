@@ -42,6 +42,7 @@ public class DessertMenuTest {
 	@Before
 	public void setUp() throws Exception {
 		this.dessertMenu = new DessertMenu(this.plainTextConfigClient);
+		System.out.println();
 	}
 
 	@Test

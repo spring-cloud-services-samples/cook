@@ -16,7 +16,7 @@ fi
 
 echo -n "Creating Config Server..."
 {
-  cf create-service -c '{ "git": { "uri": "https://github.com/spring-cloud-services-samples/cook-config", "label": "master"  } }' ${service_name} standard cook-config-server
+  cf create-service -c '{ "git": { "uri": "https://github.com/dyroberts/cook-config", "label": "master", "periodic": true  } }' ${service_name} standard cook-config-server
 } &> /dev/null
 until [ `cf service cook-config-server | grep -c "succeeded"` -eq 1  ]
 do

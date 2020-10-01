@@ -16,14 +16,34 @@
 
 package cook;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import io.pivotal.cfenv.core.CfCredentials;
+import io.pivotal.cfenv.core.CfEnv;
+import io.pivotal.cfenv.core.CfEnvSingleton;
 
 @SpringBootApplication
+@Configuration
 public class CookApplication {
+	private static final Logger log = LoggerFactory.getLogger(CookApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(CookApplication.class, args);
+	}
+
+	@Bean
+	public CfEnv cfEnv() throws JsonProcessingException {
+		CfCredentials credentials = CfEnvSingleton.getCfEnvInstance().findCredentialsByTag("configuration");
+		log.info(new ObjectMapper().writeValueAsString(credentials.getDerivedCredentials()));
+		return new CfEnv();
 	}
 
 }
