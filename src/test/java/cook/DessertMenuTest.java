@@ -19,34 +19,35 @@ package cook;
 import java.io.ByteArrayInputStream;
 import java.nio.charset.Charset;
 
-import io.pivotal.spring.cloud.service.config.PlainTextConfigClient;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import io.pivotal.spring.cloud.config.client.ConfigResourceClient;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import org.springframework.core.io.InputStreamResource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
 public class DessertMenuTest {
 
 	private DessertMenu dessertMenu;
 
 	@Mock
-	private PlainTextConfigClient plainTextConfigClient;
+	private ConfigResourceClient plainTextConfigClient;
 
-	@Before
-	public void setUp() throws Exception {
+	@BeforeEach
+	public void setUp() {
 		this.dessertMenu = new DessertMenu(this.plainTextConfigClient);
 	}
 
 	@Test
 	public void fetchMenu() throws Exception {
-		given(plainTextConfigClient.getConfigFile("cloud", "master", "dessert.json"))
+		given(plainTextConfigClient.getPlainTextResource("cloud", "master", "dessert.json"))
 				.willReturn(new InputStreamResource(new ByteArrayInputStream("Jello".getBytes(Charset.forName("UTF-8")))));
 		assertThat(dessertMenu.fetchMenu()).isNotEmpty().isEqualTo("Jello");
 	}
