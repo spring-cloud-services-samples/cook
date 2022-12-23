@@ -1,9 +1,12 @@
 ---
 spring:
-  config:
-    activate:
-      on-profile: test
-
+  cloud:
+    config:
+      client:
+        oauth2:
+          client-id: "<client id>"
+          client-secret: "<client secret>"
+          access-token-uri: "https://acccess/token/url"
 cook:
   special: Frog Legs
 secretMenu: Tofu Surprise

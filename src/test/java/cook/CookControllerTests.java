@@ -54,7 +54,7 @@ public class CookControllerTests {
 		given(this.menu.getSpecial())
 				.willReturn("Tuna Melt");
 		this.mvc.perform(get("/restaurant")
-				.accept(MediaType.APPLICATION_JSON_UTF8))
+				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().string("Today's special is: Tuna Melt"));
 	}
@@ -65,7 +65,7 @@ public class CookControllerTests {
 		given(this.menu.getSecretMenu())
 				.willReturn("Fish");
 		this.mvc.perform(get("/restaurant/secret-menu")
-				.accept(MediaType.APPLICATION_JSON_UTF8))
+				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().string("Fish"));
 	}
@@ -76,7 +76,7 @@ public class CookControllerTests {
 		given(this.dessertMenu.fetchMenu())
 				.willReturn("Chocolate Ice Cream");
 		this.mvc.perform(get("/restaurant/dessert-menu")
-				.accept(MediaType.APPLICATION_JSON_UTF8))
+				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().string("Chocolate Ice Cream"));
 	}

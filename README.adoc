@@ -1,12 +1,11 @@
-:imagesdir: docs/images
-
-image:https://circleci.com/gh/spring-cloud-services-samples/cook.svg?style=svg["CircleCI", link="https://circleci.com/gh/spring-cloud-services-samples/cook"]
-
 = Config Server sample
+
+:imagesdir: docs/images
+image:https://circleci.com/gh/spring-cloud-services-samples/cook.svg?style=svg["CircleCI", link="https://circleci.com/gh/spring-cloud-services-samples/cook"]
 
 *Cook* is an example application demonstrating the use of Config Server for Pivotal Cloud Foundry. (For information on the Config Server product, please https://docs.pivotal.io/spring-cloud-services/config-server/[see the documentation].)
 
-The main branch is using `spring-boot 2.7.x` and `spring-cloud 2021.0.x`. Check https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.6/[spring-boot-2.6], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.5/[spring-boot-2.5] and https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.4/[spring-boot-2.4] branches for older versions.
+The main branch is using `spring-boot 3.0.0` and `spring-cloud 2022.0.0`. Check https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.7[spring-boot-2.7], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.6[spring-boot-2.6], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.5[spring-boot-2.5] and https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.4[spring-boot-2.4] branches for older versions.
 
 == Building and Deploying
 
@@ -16,13 +15,13 @@ The main branch is using `spring-boot 2.7.x` and `spring-cloud 2021.0.x`. Check 
 $ mvn package
 ....
 +
-If using Gradle, run `./gradlew build` (OS X, Linux) or `gradlew.bat build` (Windows).
+If using Gradle, run `./gradlew build` (macOS, Linux) or `gradlew.bat build` (Windows).
 +
 ....
 $ ./gradlew build
 ....
 
-. Run the deployment script (link:scripts/deploy.sh[`scripts/deploy.sh`] on Linux or OS X, link:scripts/deploy.bat[`scripts/deploy.bat`] on Windows), giving it the path to the application archive. (This will be something like `target/cook-0.0.1-SNAPSHOT.jar` if you used Maven or `build/libs/cook-0.0.1-SNAPSHOT.jar` if you used Gradle.)
+. Run the deployment script (link:scripts/deploy.sh[`scripts/deploy.sh`] on Linux or maxOS, link:scripts/deploy.bat[`scripts/deploy.bat`] on Windows), giving it the path to the application archive. (This will be something like `target/cook-0.0.1-SNAPSHOT.jar` if you used Maven or `build/libs/cook-0.0.1-SNAPSHOT.jar` if you used Gradle.)
 +
 ....
 $ ./scripts/deploy.sh target/cook-0.0.1-SNAPSHOT.jar
@@ -30,15 +29,6 @@ $ ./scripts/deploy.sh target/cook-0.0.1-SNAPSHOT.jar
 +
 The script will create a Config Server service instance, push the application, and bind the Config Server service instance to the application.
 
-. When the script has finished, set the `TRUST_CERTS` environment variable to the API endpoint of your Elastic Runtime instance (as in `api.example.com`), then run `cf restage cook` to restage the application so that that change will take effect. Setting `TRUST_CERTS` causes Spring Cloud Services to add the the SSL certificate at the specfied API endpoint to the JVM's truststore, so that the client application can communicate with a Config Server service instance even if your Elastic Runtime instance is using a self-signed SSL certificate (see the https://docs.pivotal.io/spring-cloud-services/config-server/writing-client-applications.html#self-signed-ssl-certificate[Config Server documentation]).
-+
-....
-$ cf set-env cook TRUST_CERTS api.wise.com
-Setting env variable 'TRUST_CERTS' to 'api.wise.com' for app cook in org myorg / space development as user...
-OK
-TIP: Use 'cf restage' to ensure your env variable changes take effect
-$ cf restage cook
-....
 +
 [NOTE]
 ====

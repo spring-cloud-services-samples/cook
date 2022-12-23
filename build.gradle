@@ -1,47 +1,42 @@
 plugins {
-	id "org.springframework.boot" version "2.7.2"
+    id 'java'
+    id 'org.springframework.boot' version '3.0.1'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'idea'
+    id 'eclipse'
 }
 
 version = "0.0.1-SNAPSHOT"
-
-apply plugin: "java"
-apply plugin: "eclipse"
-apply plugin: "idea"
-apply plugin: "io.spring.dependency-management"
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 jar {
-	baseName = "cook"
-}
-
-dependencyManagement {
-	imports {
-		mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2021.0.3"
-		mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:3.5.0"
-	}
-}
-
-dependencies {
-	compile("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client")
-	compile("org.springframework.boot:spring-boot-starter-web")
-	compile("org.springframework.boot:spring-boot-starter-actuator")
-	compile("org.springframework.boot:spring-boot-starter-security")
-	compile("org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure")
-	compile("org.springframework.security:spring-security-rsa")
-	testCompile("org.springframework.boot:spring-boot-starter-test")
-	testCompile("org.springframework.security:spring-security-test")
+    archiveBaseName = "cook"
 }
 
 repositories {
-	mavenCentral()
-	maven { url "https://repo.spring.io/release" }
-	maven { url "https://repo.spring.io/milestone" }
-	maven { url "https://repo.spring.io/snapshot" }
+    mavenCentral()
+    maven { url "https://repo.spring.io/release" }
+}
+
+dependencies {
+    implementation("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.springframework.security:spring-security-rsa")
+    implementation("io.pivotal.cfenv:java-cfenv:2.4.1")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.security:spring-security-test")
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2022.0.0"
+        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:4.0.0"
+    }
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
