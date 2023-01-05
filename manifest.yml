@@ -8,3 +8,4 @@ applications:
       - cook-config-server
     env:
       SPRING_PROFILES_ACTIVE: development
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 17.+ }}'

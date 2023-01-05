@@ -17,7 +17,6 @@
 package cook;
 
 import java.io.ByteArrayInputStream;
-import java.nio.charset.Charset;
 
 import io.pivotal.spring.cloud.config.client.PlainTextConfigClient;
 
@@ -31,6 +30,8 @@ import org.springframework.core.io.InputStreamResource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 @ExtendWith(MockitoExtension.class)
 public class DessertMenuTest {
@@ -47,8 +48,8 @@ public class DessertMenuTest {
 
 	@Test
 	public void fetchMenu() throws Exception {
-		given(plainTextConfigClient.getPlainTextResource("cloud", "master", "dessert.json"))
-				.willReturn(new InputStreamResource(new ByteArrayInputStream("Jello".getBytes(Charset.forName("UTF-8")))));
+		given(plainTextConfigClient.getPlainTextResource("cloud", "main", "dessert.json"))
+				.willReturn(new InputStreamResource(new ByteArrayInputStream("Jello".getBytes(UTF_8))));
 		assertThat(dessertMenu.fetchMenu()).isNotEmpty().isEqualTo("Jello");
 	}
 
