@@ -16,7 +16,8 @@ metadata:
 spec:
   configurationSource: cook-config-source
   content:
-  - cook/default
-  - cook/production
+  - cook/default/showcase
+  - dessert/default/showcase
+  - secretmenu/default/showcase
   mutable: false
   interval: 60s
