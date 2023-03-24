@@ -41,9 +41,6 @@ public class CookControllerTests {
 	@MockBean
 	private Menu menu;
 
-	@MockBean
-	private DessertMenu dessertMenu;
-
 	@Test
 	public void contextLoads() {
 	}
@@ -73,7 +70,7 @@ public class CookControllerTests {
   @WithMockUser(value = "Cookie")
 	@Test
 	public void dessertMenu() throws Exception {
-		given(this.dessertMenu.fetchMenu())
+		given(this.menu.getDessertMenu())
 				.willReturn("Chocolate Ice Cream");
 		this.mvc.perform(get("/restaurant/dessert-menu")
 				.accept(MediaType.APPLICATION_JSON))

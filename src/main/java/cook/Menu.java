@@ -28,9 +28,15 @@ public class Menu {
 
 	private final String secretMenu;
 
-	public Menu(@Value("${cook.special:none}") String special, @Value("${secretMenu:none}") String secretMenu) {
+	private final String dessertMenu;
+
+	public Menu(
+			@Value("${cook.special:none}") String special,
+			@Value("${secretMenu:none}") String secretMenu,
+			@Value("${dessertMenu:none}") String dessertMenu) {
 		this.special = special;
 		this.secretMenu = secretMenu;
+		this.dessertMenu = dessertMenu;
 	}
 
 	public String getSpecial() {
@@ -41,4 +47,7 @@ public class Menu {
 		return secretMenu;
 	}
 
+	public String getDessertMenu() {
+		return dessertMenu;
+	}
 }

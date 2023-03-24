@@ -25,20 +25,24 @@ public class MenuTest {
 
 	@Test
 	public void emptyMenu() {
-		var menu = new Menu(null, null);
+		var menu = new Menu(null, null, null);
 		assertThat(menu.getSpecial()).isNullOrEmpty();
 		assertThat(menu.getSecretMenu()).isNullOrEmpty();
+		assertThat(menu.getDessertMenu()).isNullOrEmpty();
 	}
 
 	@Test
 	public void menu() {
-		var menu = new Menu("Tofu Noodles", "Tofu BBQ");
+		var menu = new Menu("Tofu Noodles", "Tofu BBQ", "Mapo Tofu");
 		assertThat(menu.getSpecial())
 				.isNotEmpty()
 				.isEqualTo("Tofu Noodles");
 		assertThat(menu.getSecretMenu())
 				.isNotEmpty()
 				.isEqualTo("Tofu BBQ");
+		assertThat(menu.getDessertMenu())
+				.isNotEmpty()
+				.isEqualTo("Mapo Tofu");
 	}
 
 }
