@@ -1,0 +1,22 @@
+apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+kind: ConfigurationSource
+metadata:
+  name: cook-config-source
+  namespace: my-apps
+spec:
+  backends:
+    - type: git
+      uri: https://github.com/spring-cloud-services-samples/cook-config.git
+---
+apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+kind: ConfigurationSlice
+metadata:
+  name: cook-config
+  namespace: my-apps
+spec:
+  configurationSource: cook-config-source
+  content:
+  - cook/default
+  - cook/production
+  mutable: false
+  interval: 60s

@@ -1,0 +1,31 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: cook
+  namespace: my-apps
+  labels:
+    app.kubernetes.io/part-of: cook-app
+    apps.kubernetes.io/name: cook
+    apps.tanzu.vmware.com/has-tests: "true"
+    apps.tanzu.vmware.com/workload-type: web
+spec:
+  serviceClaims:
+  - name: spring-properties
+    ref:
+      apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+      kind: ResourceClaim
+      name: cook-config
+  build:
+    env:
+      - name: BP_JVM_VERSION
+        value: "17"
+  env:
+    - name: SPRING_CONFIG_IMPORT
+      value: "optional:configtree:${SERVICE_BINDING_ROOT}/spring-properties/"
+    - name: SPRING_CLOUD_CONFIG_ENABLED
+      value: "false"
+  source:
+    git:
+      url: https://github.com/spring-cloud-services-samples/cook.git
+      ref:
+        branch: tap
