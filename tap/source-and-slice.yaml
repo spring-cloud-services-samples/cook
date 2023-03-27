@@ -24,6 +24,6 @@ spec:
   interval: 60s
   secretStrategy: tree
   content:
-  - cook/default/showcase
+  - cook/default
   - dessert/default/showcase
   - secretmenu/default/showcase
