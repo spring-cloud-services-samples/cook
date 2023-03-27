@@ -7,6 +7,10 @@ spec:
   backends:
     - type: git
       uri: https://github.com/spring-cloud-services-samples/cook-config.git
+      defaultLabel: main
+      secretRef:
+        name: cook-config-credentials
+        namespace: my-apps
 ---
 apiVersion: config.apps.tanzu.vmware.com/v1alpha4
 kind: ConfigurationSlice
@@ -15,9 +19,11 @@ metadata:
   namespace: my-apps
 spec:
   configurationSource: cook-config-source
+  secretName: cook-config
+  mutable: false
+  interval: 60s
+  secretStrategy: tree
   content:
   - cook/default/showcase
   - dessert/default/showcase
   - secretmenu/default/showcase
-  mutable: false
-  interval: 60s
