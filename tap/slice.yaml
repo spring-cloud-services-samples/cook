@@ -1,0 +1,15 @@
+apiVersion: config.apps.tanzu.vmware.com/v1alpha4
+kind: ConfigurationSlice
+metadata:
+  name: cook-config
+  namespace: my-apps
+spec:
+  configurationSource: cook-config-source
+  secretName: cook-config
+  mutable: false
+  interval: 60s
+  secretStrategy: tree
+  content:
+    - cook/default
+    - dessert/default/showcase
+    - secretmenu/default/showcase
