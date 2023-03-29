@@ -11,5 +11,6 @@ spec:
   secretStrategy: tree
   content:
     - cook/default
+    - cook/production/showcase
     - dessert/default/showcase
     - secretmenu/default/showcase
