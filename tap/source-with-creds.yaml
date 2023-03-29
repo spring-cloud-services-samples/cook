@@ -8,3 +8,6 @@ spec:
     - type: git
       uri: https://github.com/spring-cloud-services-samples/cook-config.git
       defaultLabel: main
+      secretRef:
+        name: cook-config-credentials
+        namespace: my-apps
