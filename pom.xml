@@ -14,15 +14,15 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.0.1</version>
+    <version>3.2.0</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>17</java.version>
-    <spring-cloud.version>2022.0.0</spring-cloud.version>
-    <spring-cloud-services.version>4.0.0</spring-cloud-services.version>
+    <spring-cloud.version>2023.0.0</spring-cloud.version>
+    <spring-cloud-services.version>4.1.0</spring-cloud-services.version>
   </properties>
 
   <dependencyManagement>
