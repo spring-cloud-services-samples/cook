@@ -5,7 +5,7 @@ image:https://circleci.com/gh/spring-cloud-services-samples/cook.svg?style=svg["
 
 *Cook* is an example application demonstrating the use of Config Server for Pivotal Cloud Foundry. (For information on the Config Server product, please https://docs.pivotal.io/spring-cloud-services/config-server/[see the documentation].)
 
-The main branch is using `spring-boot 3.0.0` and `spring-cloud 2022.0.0`. Check https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.7[spring-boot-2.7], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.6[spring-boot-2.6], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.5[spring-boot-2.5] and https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.4[spring-boot-2.4] branches for older versions.
+The main branch is using `spring-boot 3.2.0` and `spring-cloud 2023.0.0`. Check https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.7[spring-boot-2.7], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.6[spring-boot-2.6], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.5[spring-boot-2.5] and https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.4[spring-boot-2.4] branches for older versions.
 
 == Building and Deploying
 
