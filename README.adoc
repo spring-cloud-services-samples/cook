@@ -3,7 +3,8 @@
 :imagesdir: docs/images
 image:https://circleci.com/gh/spring-cloud-services-samples/cook.svg?style=svg["CircleCI", link="https://circleci.com/gh/spring-cloud-services-samples/cook"]
 
-*Cook* is an example application demonstrating the use of Config Server for Pivotal Cloud Foundry. (For information on the Config Server product, please https://docs.pivotal.io/spring-cloud-services/config-server/[see the documentation].)
+*Cook* is an example application demonstrating the use of Config Server for Tanzu Application Service. 
+(For information on the Config Server product in Tanzu Application Service, please https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/3.2/spring-cloud-services/GUID-config-server-index.html[see the documentation].)
 
 The main branch is using `spring-boot 3.2.0` and `spring-cloud 2023.0.0`. Check https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.7[spring-boot-2.7], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.6[spring-boot-2.6], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.5[spring-boot-2.5] and https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.4[spring-boot-2.4] branches for older versions.
 
@@ -32,7 +33,7 @@ The script will create a Config Server service instance, push the application, a
 +
 [NOTE]
 ====
-By default, the Config Server client dependency will cause all application endpoints to be secured by HTTP Basic authentication. For more information or if you wish to disable this, https://docs.pivotal.io/spring-cloud-services/config-server/writing-client-applications.html#disable-http-basic-auth[see the documentation]. (HTTP Basic authentication is disabled in this sample application.)
+By default, the Config Server client dependency will cause all application endpoints to be secured by HTTP Basic authentication. For more information or if you wish to deactivate this, https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/3.2/spring-cloud-services/GUID-config-server-writing-client-applications.html#deactivate-http-basic-authentication[see the documentation]. (HTTP Basic authentication is disabled in this sample application.)
 ====
 
 == Trying It Out
@@ -41,4 +42,4 @@ By default, the Config Server client dependency will cause all application endpo
 +
 image::special-of-the-day.png[link:docs/images/special-of-the-day.png]
 
-For more information about the Config Server and its use in a client application, see the https://docs.pivotal.io/spring-cloud-services/config-server/writing-client-applications.html[Config Server documentation].
+For more information about the Config Server and its use in a client application, see the https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/3.2/spring-cloud-services/GUID-config-server-writing-client-applications.html[Config Server documentation].
