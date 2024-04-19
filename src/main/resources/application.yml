@@ -1,5 +1,7 @@
 ---
 spring:
+  config:
+    import: "optional:configserver:"
   application:
     name: cook
 

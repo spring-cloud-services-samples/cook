@@ -26,10 +26,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-@SpringBootTest(properties = {
-		"spring.profiles.active=test",
-		"spring.cloud.config.enabled=false"
-})
+@SpringBootTest(properties = {"spring.profiles.active=test"})
 public class MenuIntegrationTest {
 
 	@Autowired
