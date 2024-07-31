@@ -2,6 +2,7 @@
 applications:
   - name: cook
     host: cookie
+    random-route: true
     instances: 1
     memory: 1G
     services:
