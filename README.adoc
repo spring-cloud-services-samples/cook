@@ -6,7 +6,7 @@ image:https://circleci.com/gh/spring-cloud-services-samples/cook.svg?style=svg["
 *Cook* is an example application demonstrating the use of Config Server for Tanzu Application Service. 
 (For information on the Config Server product in Tanzu Application Service, please https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/3.2/spring-cloud-services/GUID-config-server-index.html[see the documentation].)
 
-The main branch is using `spring-boot 3.x` and `spring-cloud 2023.x`. Check https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.7[spring-boot-2.7], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.6[spring-boot-2.6], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.5[spring-boot-2.5] and https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.4[spring-boot-2.4] branches for older versions.
+The main branch is using `spring-boot 3.x` and `spring-cloud 2025.x`. Check https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.7[spring-boot-2.7], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.6[spring-boot-2.6], https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.5[spring-boot-2.5] and https://github.com/spring-cloud-services-samples/cook/tree/spring-boot-2.4[spring-boot-2.4] branches for older versions.
 
 == Building and Deploying
 
