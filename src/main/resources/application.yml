@@ -1,9 +1,9 @@
 ---
 spring:
-  config:
-    import: "optional:configserver:"
   application:
     name: cook
+  config:
+    import: "optional:configserver:"
 
 encrypt:
   keyStore:
