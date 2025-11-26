@@ -1,14 +1,16 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.0'
+    id 'org.springframework.boot' version '4.0.0'
     id 'io.spring.dependency-management' version '1.1.7'
     id 'idea'
     id 'eclipse'
 }
 
 version = "0.0.1-SNAPSHOT"
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 jar {
     archiveBaseName = "cook"
@@ -25,12 +27,13 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.security:spring-security-rsa:1.1.5")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
     testImplementation("org.springframework.security:spring-security-test")
 }
 
 dependencyManagement {
     imports {
-        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:4.3.1"
+        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:4.4.0"
     }
 }
 
