@@ -18,8 +18,8 @@ package cook;
 
 import java.io.ByteArrayInputStream;
 
-import io.pivotal.spring.cloud.config.client.PlainTextConfigClient;
 
+import com.vmware.tanzu.spring.applicationservices.config.client.PlainTextConfigClient;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

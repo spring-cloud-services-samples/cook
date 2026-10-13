@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '4.0.0'
+    id 'org.springframework.boot' version '4.1.1'
     id 'io.spring.dependency-management' version '1.1.7'
     id 'idea'
     id 'eclipse'
@@ -18,10 +18,17 @@ jar {
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri('https://packages.broadcom.com/artifactory/spring-enterprise')
+        credentials {
+            username = System.getenv('SEC_ARTIFACTORY_USERNAME') ?: findProperty('secArtifactoryUsername') ?: ''
+            password = System.getenv('SEC_ARTIFACTORY_PASSWORD') ?: findProperty('secArtifactoryPassword') ?: ''
+        }
+    }
 }
 
 dependencies {
-    implementation("io.pivotal.spring.cloud:spring-cloud-services-starter-config-client")
+    implementation("com.vmware.tanzu.spring.applicationservices:application-services-starter-config-client")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-security")
@@ -33,7 +40,7 @@ dependencies {
 
 dependencyManagement {
     imports {
-        mavenBom "io.pivotal.spring.cloud:spring-cloud-services-dependencies:4.4.0"
+        mavenBom "com.vmware.tanzu.spring:tanzu-spring-sdk-dependencies:1.2.0"
     }
 }
 
