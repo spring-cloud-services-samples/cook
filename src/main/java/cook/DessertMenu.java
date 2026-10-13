@@ -21,9 +21,9 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 
 
+import com.vmware.tanzu.spring.applicationservices.config.client.PlainTextConfigClient;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StreamUtils;
-import io.pivotal.spring.cloud.config.client.PlainTextConfigClient;
 
 @Service
 public class DessertMenu {
