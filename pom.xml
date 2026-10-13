@@ -15,30 +15,21 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.5.0</version>
+    <version>4.1.1</version>
     <relativePath /> <!-- lookup parent from repository -->
   </parent>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>17</java.version>
-    <spring-cloud.version>2025.0.0</spring-cloud.version>
-    <spring-cloud-services.version>4.3.0</spring-cloud-services.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>io.pivotal.spring.cloud</groupId>
-        <artifactId>spring-cloud-services-dependencies</artifactId>
-        <version>${spring-cloud-services.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-dependencies</artifactId>
-        <version>${spring-cloud.version}</version>
+        <groupId>com.vmware.tanzu.spring</groupId>
+        <artifactId>tanzu-spring-sdk-dependencies</artifactId>
+        <version>1.2.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -47,8 +38,8 @@
 
   <dependencies>
     <dependency>
-      <groupId>io.pivotal.spring.cloud</groupId>
-      <artifactId>spring-cloud-services-starter-config-client</artifactId>
+      <groupId>com.vmware.tanzu.spring.applicationservices</groupId>
+      <artifactId>application-services-starter-config-client</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -73,11 +64,30 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-webmvc-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-test</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>spring-enterprise</id>
+      <url>https://packages.broadcom.com/artifactory/spring-enterprise</url>
+    </repository>
+  </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>spring-enterprise</id>
+      <url>https://packages.broadcom.com/artifactory/spring-enterprise</url>
+    </pluginRepository>
+  </pluginRepositories>
 
   <build>
     <plugins>
