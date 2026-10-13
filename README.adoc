@@ -14,25 +14,94 @@ Cook imports the Tanzu Spring SDK BOM (`com.vmware.tanzu.spring:tanzu-spring-sdk
 The BOM manages the version of `application-services-starter-config-client`, which provides the Config Server client, so the
 starter is declared without a version.
 
-The BOM is published in the Spring Enterprise repository (`https://packages.broadcom.com/artifactory/spring-enterprise`),
-which requires credentials. Set them as environment variables before you build:
+[source,xml]
+----
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.vmware.tanzu.spring</groupId>
+      <artifactId>tanzu-spring-sdk-dependencies</artifactId>
+      <version>1.2.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
 
-....
-$ export SEC_ARTIFACTORY_USERNAME=your_username
-$ export SEC_ARTIFACTORY_PASSWORD=your_access_token
-....
+<dependencies>
+  <dependency>
+    <groupId>com.vmware.tanzu.spring.applicationservices</groupId>
+    <artifactId>application-services-starter-config-client</artifactId>
+  </dependency>
+</dependencies>
+----
 
-Gradle can also read `secArtifactoryUsername` and `secArtifactoryPassword` from `~/.gradle/gradle.properties`.
-Maven reads the credentials from a `spring-enterprise` server entry in `~/.m2/settings.xml`:
+[source,groovy]
+----
+dependencyManagement {
+    imports {
+        mavenBom "com.vmware.tanzu.spring:tanzu-spring-sdk-dependencies:1.2.0"
+    }
+}
+
+dependencies {
+    implementation("com.vmware.tanzu.spring.applicationservices:application-services-starter-config-client")
+}
+----
+
+To use a different SDK release, change the BOM version in `pom.xml` and `build.gradle`.
+Use the same version in both files.
+
+== Authentication Setup
+
+Both builds use the Spring Enterprise repository (`https://packages.broadcom.com/artifactory/spring-enterprise`),
+which requires credentials.
+For repository configuration, see https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/tanzu-spring/commercial/spring-tanzu/guide-artifact-repository-administrators.html[Spring Enterprise Repository for Artifact Repository Administrators].
+
+=== 1. Set Environment Variables (Recommended)
+
+Set these environment variables before you build:
+
+[source,bash]
+----
+export SEC_ARTIFACTORY_USERNAME=your_username
+export SEC_ARTIFACTORY_PASSWORD=your_access_token
+----
+
+=== 2. Build Tool Specific Configuration
+
+*For Gradle:*
+
+Gradle reads the environment variables above.
+You can also set the credentials in `~/.gradle/gradle.properties`:
+
+[source,properties]
+----
+secArtifactoryUsername=your_username
+secArtifactoryPassword=your_access_token
+----
+
+*For Maven:*
+
+Add the `spring-enterprise` server to `~/.m2/settings.xml`.
+This configuration reads the environment variables from step 1.
+If the file already has a `servers` element, add the `server` entry to it.
 
 [source,xml]
-....
-<server>
-  <id>spring-enterprise</id>
-  <username>${env.SEC_ARTIFACTORY_USERNAME}</username>
-  <password>${env.SEC_ARTIFACTORY_PASSWORD}</password>
-</server>
-....
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <servers>
+    <server>
+      <id>spring-enterprise</id>
+      <username>${env.SEC_ARTIFACTORY_USERNAME}</username>
+      <password>${env.SEC_ARTIFACTORY_PASSWORD}</password>
+    </server>
+  </servers>
+</settings>
+----
 
 == Building and Deploying
 
